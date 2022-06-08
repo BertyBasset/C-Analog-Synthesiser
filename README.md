@@ -6,7 +6,7 @@ The project uses the ASIO protocol to provide a low latency output. These are sp
 
 To test. Run UI project, click Start. You should get a sound.
 
-In Form1.cs of the UI project, comment the oscillator lines in an out:
+In Form1.cs of the UI project, comment the oscillator lines in and out:
 
 ```cs
   void InitSynth() {
