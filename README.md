@@ -48,3 +48,7 @@ In Form1.cs of the UI project, comment the oscillator lines in and out:
 
         }
         ```
+        
+        #BONUS!!
+        
+        As a bonus. When you click start, the first 20,000 samples are copied into the Windows Clipboard. If you open the spreadsheet UI/Spreadsheet/Synth.xlsx, you can paste the clipboard data into columns A or B, and the waveform will be plotted in the Excel chart.
