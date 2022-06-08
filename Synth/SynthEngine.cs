@@ -96,10 +96,6 @@ namespace Synth {
 
         #endregion
 
-        #region Private members
-        List<OscillatorBase> oscillators = new List<OscillatorBase>();
-        // int sample;
-        #endregion
 
         #region Constructor
         public SynthEngine(float volume = 0.25f) {
