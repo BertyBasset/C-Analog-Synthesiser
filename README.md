@@ -33,7 +33,7 @@ In Form1.cs of the UI project, comment the oscillator lines in an out:
             synth.Oscillators.Add(new OscillatorSaw() { Frequency = 20.2f });
             */
 
-            synth.Oscillators.Add(new OscillatorNoise());
+            /*synth.Oscillators.Add(new OscillatorNoise());*/
 
 
             synth.Oscillators.Add(new OscillatorSquare() { Frequency = 40f });
