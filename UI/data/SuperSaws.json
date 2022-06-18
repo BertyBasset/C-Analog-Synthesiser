@@ -1,0 +1,23 @@
+﻿//    Supersaw has 7 separate phase accumulators, so just have array[7] of Frequency Ratios
+[
+  {
+    "Name": "Narrow (±0.03%)",
+    "FrequencyRatios": [ 0.9997, 0.9998, 0.9999, 1.000, 1.0001, 1.0002, 1.0003 ]
+  },
+  {
+    "Name": "Standard (±0.3%)",
+    "FrequencyRatios": [ 0.997, 0.998, 0.999, 1.000, 1.001, 1.002, 1.003 ]
+  },
+  {
+    "Name": "Wide (±0.9%)",
+    "FrequencyRatios": [ 0.991, 0.994, 0.997, 1.000, 1.003, 1.006, 1.009 ]
+  },
+  {
+    "Name": "Very Wide (3%)",
+    "FrequencyRatios": [ 0.970, 0.980, 0.990, 1.000, 1.010, 1.020, 1.030 ]
+  },
+  {
+    "Name": "Fifth",
+    "FrequencyRatios": [ 0.997, 0.998, 0.999, 1.000, 1.001, 1.498, 1.499 ]
+  }
+]
