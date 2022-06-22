@@ -12,13 +12,28 @@ namespace UI.Utils {
             if(!FileName.StartsWith("\\"))
                 FileName = "\\" + FileName;
 
+            string content = "";
+            using (var f = File.OpenText(Directory.GetCurrentDirectory() + FileName)) {
+                content = f.ReadToEnd();
+            }
+
+
             var list = JsonConvert.DeserializeObject<List<T>>(
-                File.OpenText(Directory.GetCurrentDirectory() + FileName).ReadToEnd(),
+                content,
                 new JsonSerializerSettings { MissingMemberHandling = MissingMemberHandling.Ignore }
             );
 
             Debug.Assert(list != null);
             return list;
+        }
+
+
+        public static void SaveListToFile(string FileName, List<T> list) {
+            if (!FileName.StartsWith("\\"))
+                FileName = "\\" + FileName;
+
+            var s = JsonConvert.SerializeObject(list);
+            File.WriteAllText(Directory.GetCurrentDirectory() + FileName, s); 
         }
     }
 }

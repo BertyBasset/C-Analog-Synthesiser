@@ -32,9 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SimpleTest));
             this.cmdStart = new System.Windows.Forms.Button();
             this.cmdStop = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.ddlNote = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.chkKbd = new System.Windows.Forms.CheckBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.ddlModSource = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.sldModAmount = new System.Windows.Forms.TrackBar();
+            this.label16 = new System.Windows.Forms.Label();
+            this.ddlSyncSource = new System.Windows.Forms.ComboBox();
             this.ddlSuperSaw = new System.Windows.Forms.ComboBox();
             this.picSuperSaw = new System.Windows.Forms.PictureBox();
             this.lblWaveform = new System.Windows.Forms.Label();
@@ -55,13 +60,20 @@
             this.sldTune = new System.Windows.Forms.TrackBar();
             this.label17 = new System.Windows.Forms.Label();
             this.sldPWM = new System.Windows.Forms.TrackBar();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblPWM = new System.Windows.Forms.Label();
             this.lblFrequency = new System.Windows.Forms.Label();
             this.cmdReset = new System.Windows.Forms.Button();
             this.sldFineTune = new System.Windows.Forms.TrackBar();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.chkKbd1 = new System.Windows.Forms.CheckBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.ddlModSource1 = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.sldModAmount1 = new System.Windows.Forms.TrackBar();
+            this.label18 = new System.Windows.Forms.Label();
+            this.ddlSyncSource1 = new System.Windows.Forms.ComboBox();
             this.ddlSuperSaw1 = new System.Windows.Forms.ComboBox();
             this.picSuperSaw1 = new System.Windows.Forms.PictureBox();
             this.lblWaveform1 = new System.Windows.Forms.Label();
@@ -78,7 +90,7 @@
             this.picTriangle1 = new System.Windows.Forms.PictureBox();
             this.sldPWM1 = new System.Windows.Forms.TrackBar();
             this.picSaw1 = new System.Windows.Forms.PictureBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblPWM1 = new System.Windows.Forms.Label();
             this.picSine1 = new System.Windows.Forms.PictureBox();
             this.lblFrequency1 = new System.Windows.Forms.Label();
             this.sldWaveForm1 = new System.Windows.Forms.TrackBar();
@@ -89,6 +101,13 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.chkKbd2 = new System.Windows.Forms.CheckBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.ddlModSource2 = new System.Windows.Forms.ComboBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.sldModAmount2 = new System.Windows.Forms.TrackBar();
+            this.label19 = new System.Windows.Forms.Label();
+            this.ddlSyncSource2 = new System.Windows.Forms.ComboBox();
             this.ddlSuperSaw2 = new System.Windows.Forms.ComboBox();
             this.picSuperSaw2 = new System.Windows.Forms.PictureBox();
             this.lblWaveform2 = new System.Windows.Forms.Label();
@@ -105,7 +124,7 @@
             this.picTriangle2 = new System.Windows.Forms.PictureBox();
             this.sldPWM2 = new System.Windows.Forms.TrackBar();
             this.picSaw2 = new System.Windows.Forms.PictureBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblPWM2 = new System.Windows.Forms.Label();
             this.picSine2 = new System.Windows.Forms.PictureBox();
             this.lblFrequency2 = new System.Windows.Forms.Label();
             this.sldWaveForm2 = new System.Windows.Forms.TrackBar();
@@ -119,8 +138,15 @@
             this.timDisplay = new System.Windows.Forms.Timer(this.components);
             this.cmdPauseGraph = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.keyboard = new UI.Keyboard();
+            this.virtualKeyboard = new UI.VirtualKeyboard();
+            this.ddlNote = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmdInitPatch = new System.Windows.Forms.Button();
+            this.cmdSavePatch = new System.Windows.Forms.Button();
+            this.ddlPatches = new System.Windows.Forms.ComboBox();
+            this.cmdDeletePatch = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWaveTable)).BeginInit();
@@ -136,6 +162,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sldPWM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldFineTune)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldLevel1)).BeginInit();
@@ -151,6 +178,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sldFineTune1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldOctave1)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldLevel2)).BeginInit();
@@ -170,7 +198,7 @@
             // 
             // cmdStart
             // 
-            this.cmdStart.Location = new System.Drawing.Point(984, 14);
+            this.cmdStart.Location = new System.Drawing.Point(978, 12);
             this.cmdStart.Name = "cmdStart";
             this.cmdStart.Size = new System.Drawing.Size(59, 31);
             this.cmdStart.TabIndex = 29;
@@ -181,7 +209,7 @@
             // cmdStop
             // 
             this.cmdStop.Enabled = false;
-            this.cmdStop.Location = new System.Drawing.Point(1048, 14);
+            this.cmdStop.Location = new System.Drawing.Point(1042, 12);
             this.cmdStop.Name = "cmdStop";
             this.cmdStop.Size = new System.Drawing.Size(59, 31);
             this.cmdStop.TabIndex = 30;
@@ -189,28 +217,15 @@
             this.cmdStop.UseVisualStyleBackColor = true;
             this.cmdStop.Click += new System.EventHandler(this.cmdStop_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.ForeColor = System.Drawing.Color.Blue;
-            this.label1.Location = new System.Drawing.Point(36, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 15);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Note:";
-            // 
-            // ddlNote
-            // 
-            this.ddlNote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ddlNote.FormattingEnabled = true;
-            this.ddlNote.Location = new System.Drawing.Point(109, 22);
-            this.ddlNote.Name = "ddlNote";
-            this.ddlNote.Size = new System.Drawing.Size(178, 23);
-            this.ddlNote.TabIndex = 1;
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chkKbd);
+            this.groupBox1.Controls.Add(this.label22);
+            this.groupBox1.Controls.Add(this.ddlModSource);
+            this.groupBox1.Controls.Add(this.label21);
+            this.groupBox1.Controls.Add(this.sldModAmount);
+            this.groupBox1.Controls.Add(this.label16);
+            this.groupBox1.Controls.Add(this.ddlSyncSource);
             this.groupBox1.Controls.Add(this.ddlSuperSaw);
             this.groupBox1.Controls.Add(this.picSuperSaw);
             this.groupBox1.Controls.Add(this.lblWaveform);
@@ -231,7 +246,7 @@
             this.groupBox1.Controls.Add(this.sldTune);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Controls.Add(this.sldPWM);
-            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.lblPWM);
             this.groupBox1.Controls.Add(this.lblFrequency);
             this.groupBox1.Controls.Add(this.cmdReset);
             this.groupBox1.Controls.Add(this.sldFineTune);
@@ -239,12 +254,96 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox1.Location = new System.Drawing.Point(12, 71);
+            this.groupBox1.Location = new System.Drawing.Point(12, 44);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(361, 289);
+            this.groupBox1.Size = new System.Drawing.Size(361, 405);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Oscillator 1";
+            // 
+            // chkKbd
+            // 
+            this.chkKbd.AutoSize = true;
+            this.chkKbd.Checked = true;
+            this.chkKbd.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkKbd.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkKbd.Location = new System.Drawing.Point(239, 115);
+            this.chkKbd.Name = "chkKbd";
+            this.chkKbd.Size = new System.Drawing.Size(47, 19);
+            this.chkKbd.TabIndex = 34;
+            this.chkKbd.Text = "Kbd";
+            this.chkKbd.UseVisualStyleBackColor = true;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label22.ForeColor = System.Drawing.Color.Blue;
+            this.label22.Location = new System.Drawing.Point(10, 365);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(54, 15);
+            this.label22.TabIndex = 52;
+            this.label22.Text = "Mod Src:";
+            // 
+            // ddlModSource
+            // 
+            this.ddlModSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlModSource.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlModSource.FormattingEnabled = true;
+            this.ddlModSource.Items.AddRange(new object[] {
+            "none",
+            "Osc 2",
+            "Osc 3"});
+            this.ddlModSource.Location = new System.Drawing.Point(80, 362);
+            this.ddlModSource.Name = "ddlModSource";
+            this.ddlModSource.Size = new System.Drawing.Size(149, 23);
+            this.ddlModSource.TabIndex = 51;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label21.ForeColor = System.Drawing.Color.Blue;
+            this.label21.Location = new System.Drawing.Point(10, 328);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(61, 15);
+            this.label21.TabIndex = 50;
+            this.label21.Text = "Mod Amt:";
+            // 
+            // sldModAmount
+            // 
+            this.sldModAmount.LargeChange = 1;
+            this.sldModAmount.Location = new System.Drawing.Point(74, 328);
+            this.sldModAmount.Maximum = 1000;
+            this.sldModAmount.Name = "sldModAmount";
+            this.sldModAmount.Size = new System.Drawing.Size(160, 45);
+            this.sldModAmount.TabIndex = 49;
+            this.sldModAmount.TickFrequency = 100;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label16.ForeColor = System.Drawing.Color.Blue;
+            this.label16.Location = new System.Drawing.Point(10, 293);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(54, 15);
+            this.label16.TabIndex = 48;
+            this.label16.Text = "Sync Src:";
+            // 
+            // ddlSyncSource
+            // 
+            this.ddlSyncSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSyncSource.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlSyncSource.FormattingEnabled = true;
+            this.ddlSyncSource.Items.AddRange(new object[] {
+            "none",
+            "Osc 2",
+            "Osc 3"});
+            this.ddlSyncSource.Location = new System.Drawing.Point(80, 290);
+            this.ddlSyncSource.Name = "ddlSyncSource";
+            this.ddlSyncSource.Size = new System.Drawing.Size(149, 23);
+            this.ddlSyncSource.TabIndex = 47;
             // 
             // ddlSuperSaw
             // 
@@ -441,22 +540,22 @@
             this.sldPWM.LargeChange = 1;
             this.sldPWM.Location = new System.Drawing.Point(74, 199);
             this.sldPWM.Maximum = 100;
+            this.sldPWM.Minimum = -100;
             this.sldPWM.Name = "sldPWM";
             this.sldPWM.Size = new System.Drawing.Size(160, 45);
             this.sldPWM.TabIndex = 10;
             this.sldPWM.TickFrequency = 25;
-            this.sldPWM.Value = 50;
             // 
-            // label5
+            // lblPWM
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Blue;
-            this.label5.Location = new System.Drawing.Point(8, 201);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(39, 15);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "PWM:";
+            this.lblPWM.AutoSize = true;
+            this.lblPWM.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPWM.ForeColor = System.Drawing.Color.Blue;
+            this.lblPWM.Location = new System.Drawing.Point(8, 201);
+            this.lblPWM.Name = "lblPWM";
+            this.lblPWM.Size = new System.Drawing.Size(64, 15);
+            this.lblPWM.TabIndex = 9;
+            this.lblPWM.Text = "Phase Dist:";
             // 
             // lblFrequency
             // 
@@ -514,6 +613,13 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.chkKbd1);
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.ddlModSource1);
+            this.groupBox2.Controls.Add(this.label26);
+            this.groupBox2.Controls.Add(this.sldModAmount1);
+            this.groupBox2.Controls.Add(this.label18);
+            this.groupBox2.Controls.Add(this.ddlSyncSource1);
             this.groupBox2.Controls.Add(this.ddlSuperSaw1);
             this.groupBox2.Controls.Add(this.picSuperSaw1);
             this.groupBox2.Controls.Add(this.lblWaveform1);
@@ -530,7 +636,7 @@
             this.groupBox2.Controls.Add(this.picTriangle1);
             this.groupBox2.Controls.Add(this.sldPWM1);
             this.groupBox2.Controls.Add(this.picSaw1);
-            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.lblPWM1);
             this.groupBox2.Controls.Add(this.picSine1);
             this.groupBox2.Controls.Add(this.lblFrequency1);
             this.groupBox2.Controls.Add(this.sldWaveForm1);
@@ -542,12 +648,96 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox2.Location = new System.Drawing.Point(379, 71);
+            this.groupBox2.Location = new System.Drawing.Point(379, 44);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(361, 289);
+            this.groupBox2.Size = new System.Drawing.Size(361, 405);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Oscillator 2";
+            // 
+            // chkKbd1
+            // 
+            this.chkKbd1.AutoSize = true;
+            this.chkKbd1.Checked = true;
+            this.chkKbd1.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkKbd1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkKbd1.Location = new System.Drawing.Point(240, 115);
+            this.chkKbd1.Name = "chkKbd1";
+            this.chkKbd1.Size = new System.Drawing.Size(47, 19);
+            this.chkKbd1.TabIndex = 35;
+            this.chkKbd1.Text = "Kbd";
+            this.chkKbd1.UseVisualStyleBackColor = true;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label25.ForeColor = System.Drawing.Color.Blue;
+            this.label25.Location = new System.Drawing.Point(4, 368);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(54, 15);
+            this.label25.TabIndex = 56;
+            this.label25.Text = "Mod Src:";
+            // 
+            // ddlModSource1
+            // 
+            this.ddlModSource1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlModSource1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlModSource1.FormattingEnabled = true;
+            this.ddlModSource1.Items.AddRange(new object[] {
+            "none",
+            "Osc 1",
+            "Osc 3"});
+            this.ddlModSource1.Location = new System.Drawing.Point(74, 365);
+            this.ddlModSource1.Name = "ddlModSource1";
+            this.ddlModSource1.Size = new System.Drawing.Size(149, 23);
+            this.ddlModSource1.TabIndex = 55;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label26.ForeColor = System.Drawing.Color.Blue;
+            this.label26.Location = new System.Drawing.Point(4, 331);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(61, 15);
+            this.label26.TabIndex = 54;
+            this.label26.Text = "Mod Amt:";
+            // 
+            // sldModAmount1
+            // 
+            this.sldModAmount1.LargeChange = 1;
+            this.sldModAmount1.Location = new System.Drawing.Point(68, 331);
+            this.sldModAmount1.Maximum = 1000;
+            this.sldModAmount1.Name = "sldModAmount1";
+            this.sldModAmount1.Size = new System.Drawing.Size(160, 45);
+            this.sldModAmount1.TabIndex = 53;
+            this.sldModAmount1.TickFrequency = 100;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.ForeColor = System.Drawing.Color.Blue;
+            this.label18.Location = new System.Drawing.Point(4, 293);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(54, 15);
+            this.label18.TabIndex = 50;
+            this.label18.Text = "Sync Src:";
+            // 
+            // ddlSyncSource1
+            // 
+            this.ddlSyncSource1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSyncSource1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlSyncSource1.FormattingEnabled = true;
+            this.ddlSyncSource1.Items.AddRange(new object[] {
+            "none",
+            "Osc 1",
+            "Osc 3"});
+            this.ddlSyncSource1.Location = new System.Drawing.Point(74, 290);
+            this.ddlSyncSource1.Name = "ddlSyncSource1";
+            this.ddlSyncSource1.Size = new System.Drawing.Size(149, 23);
+            this.ddlSyncSource1.TabIndex = 49;
             // 
             // ddlSuperSaw1
             // 
@@ -695,11 +885,11 @@
             this.sldPWM1.LargeChange = 1;
             this.sldPWM1.Location = new System.Drawing.Point(74, 199);
             this.sldPWM1.Maximum = 100;
+            this.sldPWM1.Minimum = -100;
             this.sldPWM1.Name = "sldPWM1";
             this.sldPWM1.Size = new System.Drawing.Size(160, 45);
             this.sldPWM1.TabIndex = 19;
             this.sldPWM1.TickFrequency = 25;
-            this.sldPWM1.Value = 50;
             // 
             // picSaw1
             // 
@@ -710,16 +900,16 @@
             this.picSaw1.TabIndex = 41;
             this.picSaw1.TabStop = false;
             // 
-            // label9
+            // lblPWM1
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.ForeColor = System.Drawing.Color.Blue;
-            this.label9.Location = new System.Drawing.Point(8, 201);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(39, 15);
-            this.label9.TabIndex = 18;
-            this.label9.Text = "PWM:";
+            this.lblPWM1.AutoSize = true;
+            this.lblPWM1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPWM1.ForeColor = System.Drawing.Color.Blue;
+            this.lblPWM1.Location = new System.Drawing.Point(8, 201);
+            this.lblPWM1.Name = "lblPWM1";
+            this.lblPWM1.Size = new System.Drawing.Size(64, 15);
+            this.lblPWM1.TabIndex = 18;
+            this.lblPWM1.Text = "Phase Dist:";
             // 
             // picSine1
             // 
@@ -817,6 +1007,13 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.chkKbd2);
+            this.groupBox3.Controls.Add(this.label27);
+            this.groupBox3.Controls.Add(this.ddlModSource2);
+            this.groupBox3.Controls.Add(this.label28);
+            this.groupBox3.Controls.Add(this.sldModAmount2);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.ddlSyncSource2);
             this.groupBox3.Controls.Add(this.ddlSuperSaw2);
             this.groupBox3.Controls.Add(this.picSuperSaw2);
             this.groupBox3.Controls.Add(this.lblWaveform2);
@@ -833,7 +1030,7 @@
             this.groupBox3.Controls.Add(this.picTriangle2);
             this.groupBox3.Controls.Add(this.sldPWM2);
             this.groupBox3.Controls.Add(this.picSaw2);
-            this.groupBox3.Controls.Add(this.label13);
+            this.groupBox3.Controls.Add(this.lblPWM2);
             this.groupBox3.Controls.Add(this.picSine2);
             this.groupBox3.Controls.Add(this.lblFrequency2);
             this.groupBox3.Controls.Add(this.sldWaveForm2);
@@ -844,12 +1041,96 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.ForeColor = System.Drawing.Color.Blue;
-            this.groupBox3.Location = new System.Drawing.Point(746, 71);
+            this.groupBox3.Location = new System.Drawing.Point(746, 44);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(361, 289);
+            this.groupBox3.Size = new System.Drawing.Size(361, 405);
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Oscillator 3";
+            // 
+            // chkKbd2
+            // 
+            this.chkKbd2.AutoSize = true;
+            this.chkKbd2.Checked = true;
+            this.chkKbd2.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkKbd2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.chkKbd2.Location = new System.Drawing.Point(239, 114);
+            this.chkKbd2.Name = "chkKbd2";
+            this.chkKbd2.Size = new System.Drawing.Size(47, 19);
+            this.chkKbd2.TabIndex = 35;
+            this.chkKbd2.Text = "Kbd";
+            this.chkKbd2.UseVisualStyleBackColor = true;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label27.ForeColor = System.Drawing.Color.Blue;
+            this.label27.Location = new System.Drawing.Point(10, 371);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(54, 15);
+            this.label27.TabIndex = 56;
+            this.label27.Text = "Mod Src:";
+            // 
+            // ddlModSource2
+            // 
+            this.ddlModSource2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlModSource2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlModSource2.FormattingEnabled = true;
+            this.ddlModSource2.Items.AddRange(new object[] {
+            "none",
+            "Osc 1",
+            "Osc 2"});
+            this.ddlModSource2.Location = new System.Drawing.Point(80, 368);
+            this.ddlModSource2.Name = "ddlModSource2";
+            this.ddlModSource2.Size = new System.Drawing.Size(149, 23);
+            this.ddlModSource2.TabIndex = 55;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label28.ForeColor = System.Drawing.Color.Blue;
+            this.label28.Location = new System.Drawing.Point(10, 334);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(61, 15);
+            this.label28.TabIndex = 54;
+            this.label28.Text = "Mod Amt:";
+            // 
+            // sldModAmount2
+            // 
+            this.sldModAmount2.LargeChange = 1;
+            this.sldModAmount2.Location = new System.Drawing.Point(74, 334);
+            this.sldModAmount2.Maximum = 1000;
+            this.sldModAmount2.Name = "sldModAmount2";
+            this.sldModAmount2.Size = new System.Drawing.Size(160, 45);
+            this.sldModAmount2.TabIndex = 53;
+            this.sldModAmount2.TickFrequency = 100;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.ForeColor = System.Drawing.Color.Blue;
+            this.label19.Location = new System.Drawing.Point(10, 293);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(54, 15);
+            this.label19.TabIndex = 50;
+            this.label19.Text = "Sync Src:";
+            // 
+            // ddlSyncSource2
+            // 
+            this.ddlSyncSource2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlSyncSource2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlSyncSource2.FormattingEnabled = true;
+            this.ddlSyncSource2.Items.AddRange(new object[] {
+            "none",
+            "Osc 1",
+            "Osc 2"});
+            this.ddlSyncSource2.Location = new System.Drawing.Point(80, 290);
+            this.ddlSyncSource2.Name = "ddlSyncSource2";
+            this.ddlSyncSource2.Size = new System.Drawing.Size(149, 23);
+            this.ddlSyncSource2.TabIndex = 49;
             // 
             // ddlSuperSaw2
             // 
@@ -995,11 +1276,11 @@
             this.sldPWM2.LargeChange = 1;
             this.sldPWM2.Location = new System.Drawing.Point(74, 199);
             this.sldPWM2.Maximum = 100;
+            this.sldPWM2.Minimum = -100;
             this.sldPWM2.Name = "sldPWM2";
             this.sldPWM2.Size = new System.Drawing.Size(160, 45);
             this.sldPWM2.TabIndex = 28;
             this.sldPWM2.TickFrequency = 25;
-            this.sldPWM2.Value = 50;
             // 
             // picSaw2
             // 
@@ -1010,16 +1291,16 @@
             this.picSaw2.TabIndex = 41;
             this.picSaw2.TabStop = false;
             // 
-            // label13
+            // lblPWM2
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label13.ForeColor = System.Drawing.Color.Blue;
-            this.label13.Location = new System.Drawing.Point(8, 201);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(39, 15);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "PWM:";
+            this.lblPWM2.AutoSize = true;
+            this.lblPWM2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPWM2.ForeColor = System.Drawing.Color.Blue;
+            this.lblPWM2.Location = new System.Drawing.Point(8, 201);
+            this.lblPWM2.Name = "lblPWM2";
+            this.lblPWM2.Size = new System.Drawing.Size(64, 15);
+            this.lblPWM2.TabIndex = 27;
+            this.lblPWM2.Text = "Phase Dist:";
             // 
             // picSine2
             // 
@@ -1118,42 +1399,104 @@
             // 
             this.picWaveGraph.BackColor = System.Drawing.Color.Black;
             this.picWaveGraph.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picWaveGraph.Location = new System.Drawing.Point(16, 377);
+            this.picWaveGraph.Location = new System.Drawing.Point(16, 463);
             this.picWaveGraph.Name = "picWaveGraph";
-            this.picWaveGraph.Size = new System.Drawing.Size(500, 183);
+            this.picWaveGraph.Size = new System.Drawing.Size(512, 183);
             this.picWaveGraph.TabIndex = 31;
             this.picWaveGraph.TabStop = false;
             // 
             // cmdPauseGraph
             // 
-            this.cmdPauseGraph.Location = new System.Drawing.Point(468, 377);
+            this.cmdPauseGraph.Location = new System.Drawing.Point(480, 463);
             this.cmdPauseGraph.Name = "cmdPauseGraph";
             this.cmdPauseGraph.Size = new System.Drawing.Size(48, 25);
             this.cmdPauseGraph.TabIndex = 32;
             this.cmdPauseGraph.Text = "Pause";
             this.cmdPauseGraph.UseVisualStyleBackColor = true;
             // 
-            // keyboard
+            // virtualKeyboard
             // 
-            this.keyboard.Location = new System.Drawing.Point(535, 394);
-            this.keyboard.Name = "keyboard";
-            this.keyboard.Size = new System.Drawing.Size(642, 155);
-            this.keyboard.TabIndex = 33;
+            this.virtualKeyboard.Location = new System.Drawing.Point(535, 480);
+            this.virtualKeyboard.Name = "virtualKeyboard";
+            this.virtualKeyboard.Size = new System.Drawing.Size(642, 155);
+            this.virtualKeyboard.TabIndex = 33;
+            // 
+            // ddlNote
+            // 
+            this.ddlNote.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlNote.FormattingEnabled = true;
+            this.ddlNote.Location = new System.Drawing.Point(1088, 180);
+            this.ddlNote.Name = "ddlNote";
+            this.ddlNote.Size = new System.Drawing.Size(92, 23);
+            this.ddlNote.TabIndex = 34;
+            this.ddlNote.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.Blue;
+            this.label1.Location = new System.Drawing.Point(22, 13);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 15);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Select Patch:";
+            // 
+            // cmdInitPatch
+            // 
+            this.cmdInitPatch.Location = new System.Drawing.Point(592, 5);
+            this.cmdInitPatch.Name = "cmdInitPatch";
+            this.cmdInitPatch.Size = new System.Drawing.Size(80, 31);
+            this.cmdInitPatch.TabIndex = 54;
+            this.cmdInitPatch.Text = "Init";
+            this.cmdInitPatch.UseVisualStyleBackColor = true;
+            // 
+            // cmdSavePatch
+            // 
+            this.cmdSavePatch.Location = new System.Drawing.Point(387, 5);
+            this.cmdSavePatch.Name = "cmdSavePatch";
+            this.cmdSavePatch.Size = new System.Drawing.Size(76, 31);
+            this.cmdSavePatch.TabIndex = 55;
+            this.cmdSavePatch.Text = "Save Patch";
+            this.cmdSavePatch.UseVisualStyleBackColor = true;
+            // 
+            // ddlPatches
+            // 
+            this.ddlPatches.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlPatches.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ddlPatches.FormattingEnabled = true;
+            this.ddlPatches.Location = new System.Drawing.Point(102, 8);
+            this.ddlPatches.Name = "ddlPatches";
+            this.ddlPatches.Size = new System.Drawing.Size(271, 23);
+            this.ddlPatches.TabIndex = 56;
+            // 
+            // cmdDeletePatch
+            // 
+            this.cmdDeletePatch.Location = new System.Drawing.Point(469, 5);
+            this.cmdDeletePatch.Name = "cmdDeletePatch";
+            this.cmdDeletePatch.Size = new System.Drawing.Size(82, 31);
+            this.cmdDeletePatch.TabIndex = 57;
+            this.cmdDeletePatch.Text = "Delete Patch";
+            this.cmdDeletePatch.UseVisualStyleBackColor = true;
             // 
             // SimpleTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.ClientSize = new System.Drawing.Size(1192, 572);
-            this.Controls.Add(this.keyboard);
+            this.ClientSize = new System.Drawing.Size(1192, 653);
+            this.Controls.Add(this.cmdDeletePatch);
+            this.Controls.Add(this.ddlPatches);
+            this.Controls.Add(this.cmdSavePatch);
+            this.Controls.Add(this.cmdInitPatch);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.ddlNote);
+            this.Controls.Add(this.virtualKeyboard);
             this.Controls.Add(this.cmdPauseGraph);
             this.Controls.Add(this.picWaveGraph);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.ddlNote);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.cmdStop);
             this.Controls.Add(this.cmdStart);
             this.KeyPreview = true;
@@ -1161,6 +1504,7 @@
             this.Text = "Oscillator Demo";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picWaveTable)).EndInit();
@@ -1177,6 +1521,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sldFineTune)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldLevel1)).EndInit();
@@ -1193,6 +1538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.sldOctave1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.sldModAmount2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picSuperSaw2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHarmonic2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sldLevel2)).EndInit();
@@ -1217,8 +1563,6 @@
 
         private Button cmdStart;
         private Button cmdStop;
-        private Label label1;
-        private ComboBox ddlNote;
         private GroupBox groupBox1;
         private Label lblFrequency;
         private Button cmdReset;
@@ -1241,11 +1585,11 @@
         private Label label11;
         private Label label12;
         private TrackBar sldPWM;
-        private Label label5;
+        private Label lblPWM;
         private TrackBar sldPWM1;
-        private Label label9;
+        private Label lblPWM1;
         private TrackBar sldPWM2;
-        private Label label13;
+        private Label lblPWM2;
         private TrackBar sldTune;
         private Label label17;
         private TrackBar sldTune1;
@@ -1304,7 +1648,34 @@
         private ComboBox ddlSuperSaw;
         private ComboBox ddlSuperSaw1;
         private ComboBox ddlSuperSaw2;
-        private Keyboard keyboard;
+        private VirtualKeyboard virtualKeyboard;
+        private Label label16;
+        private ComboBox ddlSyncSource;
+        private Label label18;
+        private ComboBox ddlSyncSource1;
+        private Label label19;
+        private ComboBox ddlSyncSource2;
+        private Label label22;
+        private ComboBox ddlModSource;
+        private Label label21;
+        private TrackBar sldModAmount;
+        private Label label25;
+        private ComboBox ddlModSource1;
+        private Label label26;
+        private TrackBar sldModAmount1;
+        private Label label27;
+        private ComboBox ddlModSource2;
+        private Label label28;
+        private TrackBar sldModAmount2;
+        private CheckBox chkKbd;
+        private CheckBox chkKbd1;
+        private CheckBox chkKbd2;
+        private ComboBox ddlNote;
+        private Label label1;
+        private Button cmdInitPatch;
+        private Button cmdSavePatch;
+        private ComboBox ddlPatches;
+        private Button cmdDeletePatch;
         //private UI.Keyboard keyboard1;
     }
 }
