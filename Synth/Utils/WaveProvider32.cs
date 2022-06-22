@@ -31,8 +31,7 @@ public abstract class WaveProvider32 : IWaveProvider
 
     public abstract int Read(float[] buffer, int offset, int sampleCount);
 
-    public WaveFormat WaveFormat
-    {
+    public WaveFormat? WaveFormat {
         get { return waveFormat; }
     }
 }

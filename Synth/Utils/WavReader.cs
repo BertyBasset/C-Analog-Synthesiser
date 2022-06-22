@@ -11,9 +11,6 @@ namespace Synth.Utils {
     public class WavReader {
         // Don't care about right channel. As this is for wavetable synthesis, just take L channel
         public static float[] readWav(string filename) {   //, out float[] R) {
-            
-
-
             float[] L;
 
             try {
@@ -97,7 +94,8 @@ namespace Synth.Utils {
                     }
                 }
             } catch {
-                throw new Exception("...Failed to load: " + filename);
+                //throw new Exception("...Failed to load: " + filename);
+                return new float[0];
             }
         }
     }
