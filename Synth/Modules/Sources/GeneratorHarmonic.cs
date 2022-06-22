@@ -31,9 +31,14 @@ namespace Synth.Modules.Sources {
             float sample = 0f;
 
             for (int i = 0; i < _PhaseAccumulators.Length; i++) {
+
+                // Phase Distortion
+                // Don't bother 
+
+
                 // Calculate each harmonic
                 // Shortciruit so we don't have to calculate sin if the coefficient is zero
-                sample += _PhaseAccumulators[i] == 0 ? 0 :(float)Math.Sin(_PhaseAccumulators[i] * Math.PI / 180f) * _FourierCoefficients[i];
+                sample += (float)Math.Sin(_PhaseAccumulators[i] * Math.PI / 180f) * _FourierCoefficients[i];
 
                 // Increment Phase Accumulators
                 _PhaseAccumulators[i] += (PhaseIncrement * (i + 1)) % 360;      // [0] fundamental, [1..n] subsequent overtones
@@ -42,5 +47,11 @@ namespace Synth.Modules.Sources {
 
             return sample;
         }
+
+        void iGenerator.Sync() {
+            for (int i = 0; i < _PhaseAccumulators.Length; i++)
+                _PhaseAccumulators[i] = 0f;
+        }
+
     }
 }

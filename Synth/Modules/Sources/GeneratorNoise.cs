@@ -8,5 +8,10 @@
             float sample = (float)(r.NextDouble() * 2.0 - 1.0);
             return sample * AMPLITUDE_NORMALISATION;
         }
+
+        void iGenerator.Sync() { 
+            // Don't have Phase Accumulator(s), so do nothing
+        }
+
     }
 }

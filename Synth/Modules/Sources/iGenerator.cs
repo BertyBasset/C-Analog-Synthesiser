@@ -10,5 +10,9 @@
         // Cases where this might be don is if the Generator needs to track the Phase Angles of separate harmonics
         //                            Degrees 0-360     0 - 1 (0-100% duty cycle)
         internal float GenerateSample(float Phase, float Duty, float floatIncrement);
+        
+        internal void Sync();           // Reset Phase accumuators if Generator has it's own
+
+
     }
 }

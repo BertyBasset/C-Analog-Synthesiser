@@ -1,7 +1,9 @@
 ﻿using Synth.Modules.Properties;
+using Synth.Modules.Modulators;
 
 namespace Synth.Modules.Sources {
-    public class Oscillator {
+    // Implement iModulator so an Oscillator can also be a modulator via its Value property
+    public class Oscillator : iModulator {
 
         #region Private Members
         // Generator class will change according to selected waveform
@@ -10,6 +12,8 @@ namespace Synth.Modules.Sources {
 
         // _Phase is the oscillator's 360 degree modulo phase accumulator
         float _Phase = 0f;
+
+
         #endregion
 
         #region Constructor
@@ -20,29 +24,27 @@ namespace Synth.Modules.Sources {
         #endregion
 
         #region Public Members
+        // If we want current oscillator to as sync source for another oscillator, set it as sync destination
+        public Oscillator? SyncDestination;
+
+
         // To simplify Oscillator, delegate all Frequency operations to containment class Frequecny
         public Frequency Frequency = new Frequency(Utils.Note.GetByDesc("A2"));     // Default to A2
 
 
         public float Value { get; internal set; }         // This is pre amplitude modified value suitable as modulation source  
 
-
-
         private float _Amplitude = 1f;
-        public float Amplitude {
+        public float Amplitude { 
             get { return _Amplitude; }
             set {
                 _Amplitude = Utils.Misc.Constrain(value, 0f, 1f);
             }
         }
 
-        private float _Duty = 0.5f;
-        public float Duty {
-            get { return _Duty; }
-            set {
-                _Duty = Utils.Misc.Constrain(value, .01f, .99f);        // 5% to 95% as otherwise you get no sound
-            }
-        }
+
+        public Duty Duty = new Duty();
+
 
         private WaveForm _WaveForm = new WaveForm();
         public WaveForm WaveForm {
@@ -102,13 +104,19 @@ namespace Synth.Modules.Sources {
                     ((GeneratorSuperSaw)_Generator).FrequencyRatios = _FrequencyRatios;
             }
         }
-
-
-
-
         #endregion
 
         #region Public Methods
+
+        // Reset Phase Accumulator(s) to 0
+
+
+        public void Sync() {
+            _Phase = 0;
+
+            _Generator.Sync();
+            // Also reset phase accumulators of Generators
+        }
 
         // When selecting a new waveform, all we need to do is swap in the relevant wave Generator object
         public void WaveFormSelectByID(int id) {
@@ -126,17 +134,30 @@ namespace Synth.Modules.Sources {
 
         }
 
+
+
         public float Read(float timeIncrement) {
             // Advance Phase Accumulator acording to timeIncrement and current frequency
-            float delta = timeIncrement * Frequency._PostModFrequency * 360f; 
+            float delta = timeIncrement * Frequency.GetFrequency() * 360f; 
             _Phase += delta;
+
+            double originalPhase = _Phase;
             _Phase = _Phase % 360;
+
+            if (_Phase < originalPhase)     // If % takes us back for a new cycle we've completed a cycle and can sync other ocs if needed
+                TriggerSync();
 
             // Use Generator to return wave value for current state of the Phase Accumulator
             
             // Place un attenuatted version in public Value property for use elsewhere
-            Value = _Generator.GenerateSample(_Phase, Duty, delta);
+            Value = _Generator.GenerateSample(_Phase, Duty.GetDuty(), delta);
+              
             return Value * Amplitude;
+        }
+
+        private void TriggerSync() { 
+            if(SyncDestination != null)
+                SyncDestination.Sync(); 
         }
 
 

@@ -5,9 +5,15 @@
         //                                                             Not Used
         float iGenerator.GenerateSample(float Phase, float Duty, float PhaseIncrement) {
 
+            // Phase Distortion
+            // Don't bother for Saw!!
 
             var sample = Phase / 180f - 1;
             return sample * AMPLITUDE_NORMALISATION;
+        }
+
+        void iGenerator.Sync() {
+            // Don't have Phase Accumulator(s), so do nothing
         }
     }
 }

@@ -17,6 +17,11 @@
 
         float iGenerator.GenerateSample(float Phase, float Duty, float PhaseIncrement) {
             // Advance each Phase accumulator by PhaseIncrement time RelativeFrequenices to give 7 wave detuned SuperSaw
+
+            // Phase Distortion
+            // Don't bother for Saw!!
+
+
             float sample = 0f;
             for (int i = 0; i < _PhaseAccumulators.Length; i++) {
                 sample += (float)(_PhaseAccumulators[i] / 180f - 1);
@@ -31,5 +36,12 @@
 
             return sample * AMPLITUDE_NORMALISATION;
         }
+
+        void iGenerator.Sync() {
+            for (int i = 0; i < _PhaseAccumulators.Length; i++)
+                _PhaseAccumulators[i] = 0f;
+        }
+
+
     }
 }
