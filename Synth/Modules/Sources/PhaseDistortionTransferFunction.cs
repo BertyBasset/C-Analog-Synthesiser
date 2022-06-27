@@ -62,7 +62,7 @@ namespace Synth.Modules.Sources {
                 return Phase;
 
             var p1 = new Point(-1f, -1f ) ;
-            var p2 = new Point(Distortion, 0f);
+            var p2 = new Point(Distortion, Distortion);
             var p3 = new Point(1f, 1f);
 
             float m;
