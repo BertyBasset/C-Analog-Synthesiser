@@ -1588,7 +1588,6 @@
         private Label lblPWM;
         private TrackBar sldPWM1;
         private Label lblPWM1;
-        private TrackBar sldPWM2;
         private Label lblPWM2;
         private TrackBar sldTune;
         private Label label17;
@@ -1676,6 +1675,7 @@
         private Button cmdSavePatch;
         private ComboBox ddlPatches;
         private Button cmdDeletePatch;
+        private TrackBar sldPWM2;
         //private UI.Keyboard keyboard1;
     }
 }

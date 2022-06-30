@@ -57,7 +57,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Patches\Patches.json">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="wavetables\Acoustic Guitar\AKWF_aguitar_0001.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

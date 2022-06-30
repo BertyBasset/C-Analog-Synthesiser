@@ -19,6 +19,8 @@ namespace UI {
         #region Public Event Handlers
         public event EventHandler? NoteChanged;
         public event EventHandler? KeyStateChanged;
+        public event EventHandler? PitchWheelChanged;
+        public event EventHandler? ModWheelChanged;
         #endregion
 
         #region Enums
@@ -210,6 +212,49 @@ namespace UI {
 
         private void _MidiIn_MessageReceived(object? sender, MidiInMessageEventArgs e) {
             // Detect Note Down/Up, then hook into existing virtual keyboard code
+            switch(e.MidiEvent.CommandCode)
+            {
+                case MidiCommandCode.NoteOn:
+                    var n = (NoteEvent)e.MidiEvent;
+
+                    // Our Notes Go
+                    // ID       Name      Midi Note Num
+                    // 1        A0        21   
+                    // 2        A#0       22
+                    //
+                    //
+                    // 52       C5
+                    // Therefore subtract 20 from Midi Note Number
+
+                    CurrentNote = Note.GetByID(n.NoteNumber - 20);
+                    CurrentKeyState = KeyState.Down;
+                    _NoteChanged();
+                    _KeyStateChanged();
+                    break;
+
+                case MidiCommandCode.NoteOff:
+                    CurrentKeyState = KeyState.Up;
+                    _KeyStateChanged();
+                    break;
+
+                case MidiCommandCode.PitchWheelChange:
+                    var p = (PitchWheelChangeEvent)e.MidiEvent;
+
+                    _CurrentPitchWheel = p.Pitch;
+                    _PitchWheelChanged();
+                    break;
+
+                case MidiCommandCode.ControlChange:
+                    var c = (ControlChangeEvent)e.MidiEvent;
+
+                    if (c.Controller == MidiController.Modulation) {
+                        _CurrentModWheel = c.ControllerValue;
+                        _ModWheelChanged();
+                    }
+                    break;
+            }
+
+            /*
             if (e.MidiEvent.CommandCode == MidiCommandCode.NoteOn) {
                 var n = (NoteEvent)e.MidiEvent;
 
@@ -228,10 +273,30 @@ namespace UI {
                 _KeyStateChanged();
             }
 
-            if (e.MidiEvent.CommandCode == MidiCommandCode.NoteOff) {
+            else if (e.MidiEvent.CommandCode == MidiCommandCode.NoteOff) {
                 _CurrentKeyState = KeyState.Up;
                 _KeyStateChanged();
             }
+
+            else if(e.MidiEvent.CommandCode == MidiCommandCode.PitchWheelChange)
+            {
+                var p = (PitchWheelChangeEvent)e.MidiEvent;
+
+                _CurrentPitchWheel = p.Pitch;
+                _PitchWheelChanged();
+            }
+
+            else if(e.MidiEvent.CommandCode == MidiCommandCode.ControlChange)
+            {
+                var c = (ControlChangeEvent)e.MidiEvent;
+
+                if(c.Controller == MidiController.Modulation)
+                {
+                    _CurrentModWheel = c.ControllerValue;
+                    _ModWheelChanged();
+                }
+            }
+            */
         }
         #endregion
 
@@ -331,6 +396,32 @@ namespace UI {
 
                 EventHandler handler = NoteChanged;
                 handler?.Invoke(this, new EventArgs());
+            }
+        }
+
+        private int _CurrentPitchWheel = 0;
+        public int CurrentPitchWheel
+        {
+            get { return _CurrentPitchWheel; }
+            internal set
+            {
+                _CurrentPitchWheel = value;
+                Debug.Assert(NoteChanged != null);
+
+                PitchWheelChanged?.Invoke(this, new EventArgs());
+            }
+        }
+
+        private int _CurrentModWheel = 0;
+        public int CurrentModWheel
+        {
+            get { return _CurrentModWheel; }
+            internal set
+            {
+                _CurrentModWheel = value;
+                Debug.Assert(NoteChanged != null);
+
+                PitchWheelChanged?.Invoke(this, new EventArgs());
             }
         }
         #endregion
@@ -437,14 +528,22 @@ namespace UI {
         // These to fire events
         void _KeyStateChanged() {
             Debug.Assert(KeyStateChanged != null);   
-            EventHandler handler = KeyStateChanged;
-            handler?.Invoke(this, new EventArgs());
+            KeyStateChanged?.Invoke(this, new EventArgs());
         }
 
         void _NoteChanged() {
             Debug.Assert(NoteChanged != null);
-            EventHandler handler = NoteChanged;
-            handler?.Invoke(this, new EventArgs());
+            NoteChanged?.Invoke(this, new EventArgs());
+        }
+
+        void _PitchWheelChanged()
+        {
+            PitchWheelChanged?.Invoke(this, new EventArgs());
+        }
+
+        void _ModWheelChanged()
+        {
+            ModWheelChanged?.Invoke(this, new EventArgs());
         }
         #endregion
     }

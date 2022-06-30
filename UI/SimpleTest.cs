@@ -35,22 +35,29 @@ using FftSharp;
  *  Sort patch on load                                                   DONE    
  *  Include WaveTable and Harmonics in patch save/recall                 DONE
  *  Weird wavtable filename bug - old dodge patches                      DONE
- *  Maybe use Naudio pot controls ?         Copy to Github first         -
- *  Midi In                                                              -
+ *  Midi In                                                              DONE
+ *  See how to plug in +/-1 (PW range) modulation into Phase Distprtion  DONE does it anyway
+ *  Double check sine wave distortion - looks wrong                      DONE
+ *  Oscillators Write Up Part 1                                          DONE
+ *  SynthEngine pitchbend property (similar to Note)                     DONE
+ *  Pitch Bend event                                                     DONE
+ *  Modwheel event                                                       -
+ *  Resurrect Glide!
+ *  Weird glitch on PD around 70%                                        -
  *  Record Video with Audio                                              -
- *  Oscillators Write Up -  2 parts
+ *  Oscillators Write Up Part 2                                          -
  *  
- *  
- *  
- *  Part 2
+ *  Part 2 - Modulators
  *  Modulators
  *  LFOs
  *  SH
  *  VCAs
  *  ADSRs
  *  
- *  Part 3
+ *  Part 3 - Shapers
  *  Filters
+ *  
+ *  Part 4 - Effects
  *  Phasers
  *  Reverb
  *    
@@ -76,6 +83,14 @@ namespace UI {
             synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 1f});
             synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 0f});
             synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 0f});
+
+
+            // Temporarfy hard coded mod wheel 
+            synth.Oscillators[0].Duty.Modulator = synth.ModWheel;
+            synth.Oscillators[1].Duty.Modulator = synth.ModWheel;
+            synth.Oscillators[2].Duty.Modulator = synth.ModWheel;
+
+
         }
         #endregion
 
@@ -149,6 +164,10 @@ namespace UI {
             ddlSuperSaw.DataSource = Data.SuperSaw.GetSampleList(true);
             ddlSuperSaw1.DataSource = Data.SuperSaw.GetSampleList(true);
             ddlSuperSaw2.DataSource = Data.SuperSaw.GetSampleList(true);
+
+
+
+
         }
 
         private void AddEventHandlers() {
@@ -185,6 +204,7 @@ namespace UI {
             sldTune2.ValueChanged += SldTune2_ValueChanged;
             sldFineTune2.ValueChanged += SldFineTune2_ValueChanged;
             cmdReset2.Click += CmdReset2_Click;
+
             sldPWM2.ValueChanged += SldPWM2_ValueChanged;
             sldLevel2.ValueChanged += SldLevel2_ValueChanged;
             ddlSuperSaw2.SelectedIndexChanged += DdlSuperSaw2_SelectedIndexChanged;
@@ -204,6 +224,14 @@ namespace UI {
 
             virtualKeyboard.NoteChanged += keyboard_NoteChanged;
             virtualKeyboard.KeyStateChanged += keyboard_KeyStateChanged;
+            virtualKeyboard.PitchWheelChanged += (o, e) => {
+                synth.PitchWheel = virtualKeyboard.CurrentPitchWheel;
+                lblFrequency.Invoke(new Action(() => lblFrequency.Text = FormatFrequency(synth.Oscillators[0].Frequency.PreModFrequency)));
+                lblFrequency1.Invoke(new Action(() => lblFrequency1.Text = FormatFrequency(synth.Oscillators[1].Frequency.PreModFrequency)));
+                lblFrequency2.Invoke(new Action(() => lblFrequency2.Text = FormatFrequency(synth.Oscillators[2].Frequency.PreModFrequency)));
+            };
+            virtualKeyboard.ModWheelChanged += (o, e) => 
+                synth.ModWheel.Value = virtualKeyboard.CurrentModWheel;
 
             this.KeyUp += SimpleTest_KeyUp;
 
