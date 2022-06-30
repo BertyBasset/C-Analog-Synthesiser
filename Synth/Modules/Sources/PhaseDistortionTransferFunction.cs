@@ -62,7 +62,9 @@ namespace Synth.Modules.Sources {
                 return Phase;
 
             var p1 = new Point(-1f, -1f ) ;
-            var p2 = new Point(Distortion, Distortion);
+            // Which is better ?
+            //var p2 = new Point(Distortion, -Distortion);           // This better for distorting sine waves
+            var p2 = new Point(Distortion, 0);                     // This better for distorting triangles
             var p3 = new Point(1f, 1f);
 
             float m;
