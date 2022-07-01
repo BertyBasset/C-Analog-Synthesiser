@@ -26,7 +26,7 @@ Three Oscillators:
  - Pulse width mosulation (square wave)
  - Phase distortion (sine, triangle, wavetable waves)
  - Oscillator Sync
- - Realtime wavform display
+ - Realtime waveform display
  - Realtime spectrum display (FFT)
  - Save/Recall patch
 
