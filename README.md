@@ -3,10 +3,10 @@
 Three oscillator monophonic virtual analog synthesizer. At the moment, only the oscillator modules are completed. However, you can produce a suprising number of sounds with them. The synthesizer modules are patched together in te Windows Forms UI project.
 
 Features:
--Three Oscillator:
--8 waveform
+Three Oscillators:
+- 8 waveforms
   - Sine
-  - Trinagle
+  - Triangle
   - Sawtooth
   - Square/Pulse
   - Wavetable
@@ -16,11 +16,19 @@ Features:
   - Mouse control
   - Computer keyboard control
   - Midi keybboard control
-Octave tune
-Semitone tune
-Fine tune
-Modulator input  (other oscillator selectable)
-Modulator amount
+- Frequency control:
+  - Keyboard tracking on/off
+  - Octave tune
+  - Semitone tune
+  - Fine tune
+  - Modulator input  (other oscillator selectable)
+  - Modulator amount
+ - Pulse width mosulation (square wave)
+ - Phase distortion (sine, triangle, wavetable waves)
+ - Oscillator Sync
+ - Realtime wavform display
+ - Realtime spectrum display (FFT)
+ - Save/Recall patch
 
 
 
