@@ -30,7 +30,7 @@ Three Oscillators:
  - Realtime spectrum display (FFT)
  - Save/Recall patch
 
-![Demo UI](/blob/main/UI.png?raw=true)
+![Demo UI]([/blob/main/UI.png?raw=true](https://raw.githubusercontent.com/BertyBasset/C-Analog-Synthesiser/main/UI.png))
 
 Set UI as startup project.
 
