@@ -7,6 +7,9 @@
     <Compile Update="frmSelectWavetable.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Keyboard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="SimpleTest.cs">
       <SubType>Form</SubType>
     </Compile>
