@@ -1,9 +1,10 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NAudio.Wave;
+using Synth.Modules.Modulators;
 using Synth.Modules.Sources;
 
 namespace Synth {
@@ -12,8 +13,8 @@ namespace Synth {
     // when changin frequecny.
 
     public class SynthEngine : WaveProvider32 {
-        private AsioOut? asioOut;
-        
+        private WaveOut? asioOut;
+
         // These config settings are injected into constructor by client application
         int _SampleRate;
         int _Channels;
@@ -27,11 +28,11 @@ namespace Synth {
         private int _DisplayGraphCounter;
         private float[] _DisplayGraph = new float[1000];
 
-        public float[] GetGraphData(int arraySize = 500) {
+        public float[] GetGraphData(int arraySize = 512) {
             // Array size maxes out at _DisplayGraph - 10 to keep away from the discontinuity which might have moved slightly
             // We've still got a bit of a glitch, but we can live wit it
 
-            if(arraySize > _DisplayGraph.Length - 10)
+            if (arraySize > _DisplayGraph.Length - 10)
                 arraySize = _DisplayGraph.Length - 10;
 
             float[] rv = new float[arraySize];
@@ -53,11 +54,11 @@ namespace Synth {
         #region Stop/Start
         public void Start() {
             // Maybe this needs to be in config
-            
-            
+
+
             SetWaveFormat(_SampleRate, _Channels);                   // 16kHz stereo
 
-            asioOut = new AsioOut();
+            asioOut = new();
             asioOut.Init(this);
             asioOut.Play();
             Started = true;
@@ -77,6 +78,30 @@ namespace Synth {
         public bool Started;            // Is synth running or not
         public float Volume { get; set; } = .25f;
         public List<Oscillator> Oscillators = new List<Oscillator>();
+
+        public ModWheel ModWheel { get; set; } = new ModWheel();
+
+
+        private int _PitchWheel;
+        public int PitchWheel {
+            get => _PitchWheel;
+            set {
+                _PitchWheel = value;
+                foreach (var o in Oscillators)
+                    o.Frequency.PitchWheel = _PitchWheel;
+            }
+        }
+
+        private Utils.Note _Note = new Utils.Note();
+        public Utils.Note Note {
+            get { return _Note; }
+            set {
+                _Note = value;
+                foreach(var o in Oscillators)
+                    o.Frequency.Note = _Note;
+            }
+        }
+
         #endregion
 
         #region Constructor
@@ -104,16 +129,15 @@ namespace Synth {
                 // More processing here
 
 
-
-
                 // Housekeeping - set final sample value with overall Volume
                 float currentSample = (Volume * wave);
-                buffer[n + offset] = (float)currentSample;
+                buffer[n + offset] = currentSample;
 
 
                 // Populate array for displaying waveform
                 if (n % 2 == 0) {
-                    _DisplayGraph[_DisplayGraphCounter] = currentSample;
+                    //_DisplayGraph[_DisplayGraphCounter] = currentSample;
+                    _DisplayGraph[_DisplayGraphCounter] = buffer[n + offset];
                     _DisplayGraphCounter++;
                     if(_DisplayGraphCounter >= _DisplayGraph.Length - 1)
                         _DisplayGraphCounter =0;
