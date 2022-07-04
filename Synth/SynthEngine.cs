@@ -13,7 +13,7 @@ namespace Synth {
     // when changin frequecny.
 
     public class SynthEngine : WaveProvider32 {
-        private WaveOut? asioOut;
+        private DirectSoundOut? asioOut;
 
         // These config settings are injected into constructor by client application
         int _SampleRate;
@@ -87,8 +87,8 @@ namespace Synth {
             get => _PitchWheel;
             set {
                 _PitchWheel = value;
-                foreach (var o in Oscillators)
-                    o.Frequency.PitchWheel = _PitchWheel;
+                //foreach (var o in Oscillators)
+                 //   o.Frequency.PitchWheel = _PitchWheel;
             }
         }
 
