@@ -58,6 +58,15 @@ namespace Synth.Modules.Properties {
         }
 
 
+        private float _PitchWheel = 0;
+        internal int PitchWheel {
+            set {
+                float semitone = (value - 8192f) / 4096 / 12;
+                _PitchWheel = semitone * MathF.Pow(2, 1 / 12);
+                setFrequency();
+            }
+        }
+
         private Utils.Note _Note = new Utils.Note();
         internal Utils.Note Note {
             get { return _Note; }

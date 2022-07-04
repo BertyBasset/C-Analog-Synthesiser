@@ -87,8 +87,8 @@ namespace Synth {
             get => _PitchWheel;
             set {
                 _PitchWheel = value;
-                //foreach (var o in Oscillators)
-                 //   o.Frequency.PitchWheel = _PitchWheel;
+                foreach (var o in Oscillators)
+                    o.Frequency.PitchWheel = _PitchWheel;
             }
         }
 
