@@ -6,8 +6,8 @@
             // Phase Distortion
             // For sine, instead of varying SQ duty cycle, we can do phase distortion a la Casio CZ100 !
             float phase = Phase;
-            if (Duty != 0.5)
-                phase = PhaseDistortionTransferFunction.GetPhase(phase, Duty);
+            //if (Duty != 0)
+                phase = PhaseDistortionTransferFunction.GetPhase(phase, Duty, this);
 
 
             var sample = (float)Math.Sin(phase * Math.PI / 180f); 

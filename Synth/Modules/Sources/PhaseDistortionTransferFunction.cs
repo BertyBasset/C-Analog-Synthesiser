@@ -55,17 +55,22 @@ namespace Synth.Modules.Sources {
 
 
         // Do transfer function here after normalising input to between -1 and +1
-        //     -1 to +1                    -1 to +1       -1 to + 1
-        private static float GetPhaseNominal(float Phase, float   Distortion) {
+        //     -1 to +1                    -1 to +1       -1 to + 1                     // We can use this so sine wave can use different transfer function
+        private static float GetPhaseNominal(float Phase, float   Distortion, iGenerator generator) {
             // Shortcircuit if no distortion
             if (Distortion == 0)
                 return Phase;
 
             var p1 = new Point(-1f, -1f ) ;
             // Which is better ?
-            //var p2 = new Point(Distortion, -Distortion);           // This better for distorting sine waves
-            var p2 = new Point(Distortion, 0);                     // This better for distorting triangles
-            var p3 = new Point(1f, 1f);
+
+            Point p2;
+            if(generator.GetType() == typeof(GeneratorSine) || generator.GetType() == typeof(GeneratorHarmonic))
+                p2 = new Point(Distortion, -Distortion);           // This better for distorting sine waves
+            else
+                p2 = new Point(Distortion, 0);                     // This better for distorting triangles and wavetable
+
+             var p3 = new Point(1f, 1f);
 
             float m;
             float c;
@@ -86,9 +91,9 @@ namespace Synth.Modules.Sources {
 
         // Normalise values, call GetPhaseNominal transfer function, the de-normalise to 0-360°
         //           0 to 360       0 to 360     0 - 1,  0.5% = no distortion
-        public static float GetPhase(float Phase, float Distortion) {
+        public static float GetPhase(float Phase, float Distortion, iGenerator generator) {
             float _Phase = Phase / 180f - 1f;
-            float _distPhase = GetPhaseNominal(_Phase, Distortion);
+            float _distPhase = GetPhaseNominal(_Phase, Distortion, generator);
             return (_distPhase + 1f) * 180f;
         }
     }

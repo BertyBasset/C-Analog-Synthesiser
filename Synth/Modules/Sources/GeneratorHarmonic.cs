@@ -32,12 +32,13 @@ internal class GeneratorHarmonic : iGenerator {
 
         for (int i = 0; i < _PhaseAccumulators.Length; i++) {
 
-            // Phase Distortion
-            // Don't bother 
+            double phase = _PhaseAccumulators[i] % 360f;
+            if (Duty != 0.5)
+                phase = PhaseDistortionTransferFunction.GetPhase((float)phase, Duty, this);
 
             // Calculate each harmonic
             // Shortciruit so we don't have to calculate sin if the coefficient is zero
-            sample += (float)Math.Sin(_PhaseAccumulators[i] * Math.PI / 180f) * _FourierCoefficients[i];
+            sample += (float)Math.Sin(phase * Math.PI / 180f) * _FourierCoefficients[i];
 
             // Increment Phase Accumulators
             _PhaseAccumulators[i] += (PhaseIncrement * (i + 1)) % 360;      // [0] fundamental, [1..n] subsequent overtones

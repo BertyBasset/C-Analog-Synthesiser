@@ -41,12 +41,15 @@ using FftSharp;
  *  Oscillators Write Up Part 1                                          DONE
  *  SynthEngine pitchbend property (similar to Note)                     DONE
  *  Pitch Bend event                                                     DONE
- *  Phase distortion for harmonic wave
- *  Modwheel event                                                       -
- *  Resurrect Glide!
- *  Weird glitch on PD around 70%                                        -
+ *  Modwheel event                                                       DONE
+ *  Oscillators Write Up Part 2                                          DONE
+ *  Internal Setabble knee point sin ovveride                            DONE
+ *  Phase distortion for harmonic wave                                   to do
+ *  Make noise frequency dependent + PD                                  to do
  *  Record Video with Audio                                              -
- *  Oscillators Write Up Part 2                                          -
+ *  Oscillator video demos - WP Part 3
+ *  Resurrect Glide!                    
+ *  Weird glitch on PD around 70%                                        -
  *  
  *  Part 2 - Modulators
  *  Modulators
@@ -81,6 +84,7 @@ public partial class SimpleTest : Form {
         var synthConfig = config.GetSection("Synth").Get<Synth.Config>();
         synth = new Synth.SynthEngine(synthConfig);
 
+        // Inject 3 oscillators into synth engine
         synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 1f});
         synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 0f});
         synth.Oscillators.Add(new Oscillator() { WaveForm = WaveForm.GetByType(WaveformType.Sine), Amplitude = 0f});
@@ -303,7 +307,7 @@ public partial class SimpleTest : Form {
         cmdSelectOscSetting.Enabled = sldWaveForm.Value == (int)WaveformType.WaveTable || sldWaveForm.Value == (int)WaveformType.Harmonic;
         ddlSuperSaw.Visible = sldWaveForm.Value == (int)WaveformType.SuperSaw;
 
-        if (sldWaveForm.Value == (int)WaveformType.Saw || sldWaveForm.Value == (int)WaveformType.SuperSaw || sldWaveForm.Value == (int)WaveformType.Harmonic)
+        if (sldWaveForm.Value == (int)WaveformType.Saw || sldWaveForm.Value == (int)WaveformType.SuperSaw)
             sldPWM.Enabled = false;
         else
             sldPWM.Enabled = true;
@@ -336,7 +340,7 @@ public partial class SimpleTest : Form {
     }
 
     private void SldPWM_ValueChanged(object? sender, EventArgs e) {
-        synth.Oscillators[0].Duty.Value = (float)sldPWM.Value / 100f;
+        synth.Oscillators[0].Duty.Value = (float)sldPWM.Value / 1000f;
     }
 
     private void SldLevel_ValueChanged(object? sender, EventArgs e) {

@@ -22,9 +22,9 @@ namespace Synth.Modules.Properties {
         public float GetDuty() {
             float value = Value;
             if(Modulator != null)    
-                value = value * Modulator.Value * _ModulationAmount;
+                value = value + Modulator.Value * _ModulationAmount;
 
-            return Utils.Misc.Constrain(Value, -0.98f, 0.98f);
+            return Utils.Misc.Constrain(value, -0.98f, 0.98f);
         }
     }
 }

@@ -539,12 +539,12 @@
             // 
             this.sldPWM.LargeChange = 1;
             this.sldPWM.Location = new System.Drawing.Point(74, 199);
-            this.sldPWM.Maximum = 100;
-            this.sldPWM.Minimum = -100;
+            this.sldPWM.Maximum = 1000;
+            this.sldPWM.Minimum = -1000;
             this.sldPWM.Name = "sldPWM";
             this.sldPWM.Size = new System.Drawing.Size(160, 45);
             this.sldPWM.TabIndex = 10;
-            this.sldPWM.TickFrequency = 25;
+            this.sldPWM.TickFrequency = 250;
             // 
             // lblPWM
             // 
