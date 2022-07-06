@@ -44,12 +44,11 @@ using FftSharp;
  *  Modwheel event                                                       DONE
  *  Oscillators Write Up Part 2                                          DONE
  *  Internal Setabble knee point sin ovveride                            DONE
- *  Phase distortion for harmonic wave                                   to do
- *  Make noise frequency dependent + PD                                  to do
+ *  Phase distortion for harmonic wave                                   DONE
  *  Record Video with Audio                                              -
+ *  Weird glitch on PD around 70%                                        -
  *  Oscillator video demos - WP Part 3
  *  Resurrect Glide!                    
- *  Weird glitch on PD around 70%                                        -
  *  
  *  Part 2 - Modulators
  *  Modulators

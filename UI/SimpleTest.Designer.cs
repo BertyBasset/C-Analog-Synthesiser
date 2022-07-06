@@ -1485,6 +1485,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
             this.ClientSize = new System.Drawing.Size(1192, 653);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmdDeletePatch);
             this.Controls.Add(this.ddlPatches);
             this.Controls.Add(this.cmdSavePatch);
@@ -1496,7 +1497,6 @@
             this.Controls.Add(this.picWaveGraph);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cmdStop);
             this.Controls.Add(this.cmdStart);
             this.KeyPreview = true;
