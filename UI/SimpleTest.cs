@@ -45,6 +45,7 @@ using FftSharp;
  *  Oscillators Write Up Part 2                                          DONE
  *  Internal Setabble knee point sin ovveride                            DONE
  *  Phase distortion for harmonic wave                                   DONE
+ *  DEfault Wavetable to first available wave                            -
  *  Record Video with Audio                                              -
  *  Weird glitch on PD around 70%                                        -
  *  Oscillator video demos - WP Part 3
