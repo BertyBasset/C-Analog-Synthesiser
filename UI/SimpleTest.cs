@@ -44,12 +44,14 @@ using FftSharp;
  *  Modwheel event                                                       DONE
  *  Oscillators Write Up Part 2                                          DONE
  *  Internal Setabble knee point sin ovveride                            DONE
- *  Phase distortion for harmonic wave                                   DONE
+ *  Phase distortion for harmonic wave                                   REMOVED
+ *  Fourier Glitch                                                       DONE
  *  DEfault Wavetable to first available wave                            -
  *  Record Video with Audio                                              -
  *  Weird glitch on PD around 70%                                        -
+ 
  *  Oscillator video demos - WP Part 3
- *  Resurrect Glide!                    
+ *  Resurrect Glide!     Maybe Note to CV module in SynthEngine netween Note and f                                                       
  *  
  *  Part 2 - Modulators
  *  Modulators
@@ -307,7 +309,7 @@ public partial class SimpleTest : Form {
         cmdSelectOscSetting.Enabled = sldWaveForm.Value == (int)WaveformType.WaveTable || sldWaveForm.Value == (int)WaveformType.Harmonic;
         ddlSuperSaw.Visible = sldWaveForm.Value == (int)WaveformType.SuperSaw;
 
-        if (sldWaveForm.Value == (int)WaveformType.Saw || sldWaveForm.Value == (int)WaveformType.SuperSaw)
+        if (sldWaveForm.Value == (int)WaveformType.SuperSaw || sldWaveForm.Value == (int)WaveformType.Harmonic)
             sldPWM.Enabled = false;
         else
             sldPWM.Enabled = true;
@@ -422,7 +424,7 @@ public partial class SimpleTest : Form {
         cmdSelectOscSetting1.Enabled = sldWaveForm1.Value == (int)WaveformType.WaveTable || sldWaveForm1.Value == (int)WaveformType.Harmonic;
         ddlSuperSaw1.Visible = sldWaveForm1.Value == (int)WaveformType.SuperSaw;
 
-        if (sldWaveForm1.Value == (int)WaveformType.Saw || sldWaveForm1.Value == (int)WaveformType.SuperSaw || sldWaveForm1.Value == (int)WaveformType.Harmonic)
+        if (sldWaveForm1.Value == (int)WaveformType.SuperSaw || sldWaveForm1.Value == (int)WaveformType.Harmonic)
             sldPWM1.Enabled = false;
         else
             sldPWM1.Enabled = true;
@@ -536,7 +538,7 @@ public partial class SimpleTest : Form {
         cmdSelectOscSetting2.Enabled = sldWaveForm2.Value == (int)WaveformType.WaveTable || sldWaveForm2.Value == (int)WaveformType.Harmonic;
         ddlSuperSaw2.Visible = sldWaveForm2.Value == (int)WaveformType.SuperSaw;
 
-        if (sldWaveForm2.Value == (int)WaveformType.Saw || sldWaveForm2.Value == (int)WaveformType.SuperSaw || sldWaveForm2.Value == (int)WaveformType.Harmonic)
+        if (sldWaveForm2.Value == (int)WaveformType.SuperSaw || sldWaveForm2.Value == (int)WaveformType.Harmonic)
             sldPWM2.Enabled = false;
         else
             sldPWM2.Enabled = true;

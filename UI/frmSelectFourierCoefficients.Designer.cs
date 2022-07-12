@@ -98,8 +98,8 @@
             // sldH0
             // 
             this.sldH0.Location = new System.Drawing.Point(24, 35);
-            this.sldH0.Maximum = 1000;
-            this.sldH0.Minimum = -1000;
+            this.sldH0.Maximum = 100;
+            this.sldH0.Minimum = -100;
             this.sldH0.Name = "sldH0";
             this.sldH0.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.sldH0.Size = new System.Drawing.Size(45, 141);

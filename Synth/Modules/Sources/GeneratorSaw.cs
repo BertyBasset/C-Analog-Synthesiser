@@ -8,7 +8,10 @@
             // Phase Distortion
             // Don't bother for Saw!!
 
-            var sample = Phase / 180f - 1;
+            var phase = PhaseDistortionTransferFunction.GetPhase(Phase, Duty, this);
+
+
+            var sample = phase / 180f - 1;
             return sample * AMPLITUDE_NORMALISATION;
         }
 

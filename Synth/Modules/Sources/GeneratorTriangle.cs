@@ -6,7 +6,7 @@
             // Phase Distortion
             // For triangle, instead of varying SQ duty cycle, we can do phase distortion a la Casio CZ100 !
             var phase = Phase;
-            if (Duty != 0.5)
+            if (Duty != 0)
                 phase = PhaseDistortionTransferFunction.GetPhase(phase, Duty, this);
 
             var sample = phase / 180f - 1;               // Get Saw First

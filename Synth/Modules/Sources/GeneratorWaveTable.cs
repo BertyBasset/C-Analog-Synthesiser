@@ -20,7 +20,7 @@
             // Phase Distortion
             // For wavetable, instead of varying SQ duty cycle, we can do phase distortion a la Casio CZ100 !
             var phase = Phase;
-            if (Duty != 0.5)
+            if (Duty != 0)
                 phase = PhaseDistortionTransferFunction.GetPhase(phase, Duty, this);
 
             // Should really interpolate between samples in Wavetable, but for now, just go to nearest one

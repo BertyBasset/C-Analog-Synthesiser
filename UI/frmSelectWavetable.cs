@@ -168,10 +168,9 @@ namespace UI {
             }
         }
 
-        private void DrawGraph(float[] wave, string fileName) {
+        private async void DrawGraph(float[] wave, string fileName) {
             if (fileName != "" && chkPlayPreview.Checked)
                 synth.Oscillators[0].WaveTableFileName = fileName;
-
 
             var p = new Pen(Color.Green);
 
@@ -183,7 +182,47 @@ namespace UI {
 
             g.Clear(Color.Black);
             g.DrawLines(p, points);
-            
+
+            // Get and draw spectrum
+
+            var unmodified = wave.Select(w => (double)w).ToArray();
+            var l1 = unmodified.Length;
+            var l2 = (int)Math.Pow(2, Math.Ceiling(Math.Log2(l1)));
+            var modified = new double[l2];
+
+            for (int i = 0; i < modified.Length; i++)
+                modified[i] = unmodified[(int)((double)i / modified.Length * l1)];
+
+            var s = await Task.Run(() => GetSpectrum(modified));
+            double maxCoeff = s.MaxBy(x => x);
+            if (maxCoeff < .01)
+                maxCoeff = 0.01;
+
+            Point[] spectrum = new Point[s.Length];
+            for (int i = 0; i < s.Length; i++)
+                spectrum[i] = new Point(i * 7, picPreview.Height - (int)((s[i] * picPreview.Height * .95 / maxCoeff) - 1));
+
+            p = new Pen(Color.CornflowerBlue);
+            g.DrawLines(p, spectrum);
+
+        }
+        private async Task<double[]> GetSpectrum(double[] signal)
+        {
+            // Uses nuget package from https://github.com/swharden/FftSharp
+
+            // Begin with an array containing sample data
+            //double[] signal = FftSharp.SampleData.SampleAudio1();
+
+            // Shape the signal using a Hanning window
+            var window = new FftSharp.Windows.Hanning();
+            window.ApplyInPlace(signal);
+
+            // Calculate the FFT as an array of complex numbers
+            // Complex[] fftRaw = FftSharp.Transform.FFT(signal);
+
+            // or get the magnitude (units²) or power (dB) as real numbers
+            double[] fftMag = FftSharp.Transform.FFTmagnitude(signal);
+            return fftMag;
         }
         #endregion
     }
