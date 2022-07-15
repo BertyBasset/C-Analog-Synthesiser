@@ -1,22 +1,23 @@
 Setup patch for each video
 
-1   Basic Sine Demo.  Level 2 up. Level 3 up.  Play some notes + Pitchbend
-2   Basic Saw Demo.   Level 2 up. Level 3 up.  Play some notes + Pitchbend
-3   Basic Tri Demo.   Level 2 up. Level 3 up.  Play some notes + Pitchbend
-4   Basic Sq Demo.    Level 2 up. Level 3 up.  Play some notes + Pitchbend
-5   Basic Noise Demo. Level 1 up and down
-6   Basic Wavetable Demo. Level 2 Up. Level 3 Up.    Play some notes + Pitchbend.    Wave 1. Select Voice
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
+1.   Basic Sine Demo.  Level 2 up. Level 3 up.  Play some notes + Pitchbend
+2.   Basic Saw Demo.   Level 2 up. Level 3 up.  Play some notes + Pitchbend
+3.   Basic Tri Demo.   Level 2 up. Level 3 up.  Play some notes + Pitchbend
+4.   Basic Sq Demo.    Level 2 up. Level 3 up.  Play some notes + Pitchbend
+5.   Basic Noise Demo. Level 1 up and down
+6.   Basic Wavetable Demo. Level 2 Up. Level 3 Up.    Play some notes + Pitchbend.    Wave 1. Select Voice
+7.   Basic Fourier.    Level 2 up. Level 3 up.  Play some notes + Pitchbend          ** Noisy
+8.   Edit Fourier
+9.   Basic SuperSaw. play notes, Select next playe notes up to fifth
+10.  PD Sine Demo. PD  Level 2 up. PD Level 3 up.  PD Play some notes + Pitchbend
+11.  PD Tri Demo. PD  Level 2 up. PD Level 3 up.  PD Play some notes + Pitchbend
+12.  PW Sq Demo.  PW  Level 2 up. PW Level 3 up. PW Play some notes + Pitchbend
+13.  PD Wavetable Demo. PD  Level 2 up. PD Level 3 up.  PD Play some notes + Pitchbend
+14.  Sine FM Demo. Mod Amt up. Play Keyboard. Kbd off. Change Mod Amount. Play kbd
+15.  with sync
+15.  Sine FM Demo. 1->2->3 FM
+16   with sync
+17   Chaotic demo
 18
 19
 20
