@@ -5,7 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Synth.Modules.Properties {
+namespace Synth.Modules.Properties
+{
     public class Duty {
         public float Value;
 

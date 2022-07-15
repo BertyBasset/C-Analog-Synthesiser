@@ -1,5 +1,5 @@
-﻿using Synth.Modules.Properties;
-using Synth.Modules.Modulators;
+﻿using Synth.Modules.Modulators;
+using Synth.Modules.Properties;
 
 namespace Synth.Modules.Sources;
 // Implement iModulator so an Oscillator can also be a modulator via its Value property

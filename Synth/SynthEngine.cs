@@ -122,8 +122,9 @@ namespace Synth {
 
 
                 // Process oscillators
-                foreach (var osc in Oscillators)
+                foreach (var osc in Oscillators) {
                     wave += osc.Read(timeIncrement);
+                }
 
 
                 // More processing here

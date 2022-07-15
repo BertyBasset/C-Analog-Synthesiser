@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Modules\Modulators\" />
     <Folder Include="Modules\Effects\" />
     <Folder Include="Modules\Shapers\" />
   </ItemGroup>

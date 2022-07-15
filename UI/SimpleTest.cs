@@ -46,9 +46,11 @@ using FftSharp;
  *  Internal Setabble knee point sin ovveride                            DONE
  *  Phase distortion for harmonic wave                                   REMOVED
  *  Fourier Glitch                                                       DONE
+ *  Record Video with Audio                                              DONE
+ *  Weird glitch on PD around 70%                                        DONE
+ *  Remove Volumes from Oscillators
+ *  Add n way mixer
  *  DEfault Wavetable to first available wave                            -
- *  Record Video with Audio                                              -
- *  Weird glitch on PD around 70%                                        -
  
  *  Oscillator video demos - WP Part 3
  *  Resurrect Glide!     Maybe Note to CV module in SynthEngine netween Note and f                                                       
